@@ -9,17 +9,18 @@
 #import "AIRootViewController.h"
 #import "AIListDataSource.h"
 
-@interface AIRootViewController ()
+#import "AIDetailViewController.h"
 
-@property (strong, nonatomic) AIListDataSource *dataSource;
+@interface AIRootViewController () <UITableViewDelegate>
+
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) AIListDataSource *dataSource;
 
 @end
 
 @implementation AIRootViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Creates instance of Data Source and assigns it to the root view controller
@@ -33,12 +34,6 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"App Ideas";
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                  target:self
-                                  action:@selector(newIdea)];
-    
-    [self.navigationItem setRightBarButtonItem:addButton];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Ideas"
@@ -49,7 +44,20 @@
     [self.navigationItem setBackBarButtonItem:backButton];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    // if this 'registerTableView' isn't required, why do we seperate it out?
+    [self.dataSource registerTableView:tableView];
+    tableView.dataSource = self.dataSource;
+    // worked after this point... why do we need to include these other tableView.delegate?
+    tableView.delegate = self;
     [self.view addSubview:tableView];
+    self.tableView = tableView;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self
+                                  action:@selector(newIdea)];
+    
+    [self.navigationItem setRightBarButtonItem:addButton];
     
 }
 
@@ -61,26 +69,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    AIDetailViewController *detailController = [AIDetailViewController new];
-//    [self.navigationController pushViewController:detailController animated:YES];
+    AIDetailViewController *detailController = [AIDetailViewController new];
+    [self.navigationController pushViewController:detailController animated:YES];
     
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

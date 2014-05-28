@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AIListDataSource : NSObject <UITableViewDataSource>
-@property (strong, nonatomic) NSString *identifier;
+
 @property (nonatomic, strong, readonly) NSArray *ideas;
 
 - (void)registerTableView:(UITableView *)tableView;

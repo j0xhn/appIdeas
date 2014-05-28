@@ -8,6 +8,9 @@
 
 #import "AIListDataSource.h"
 #import "AITableViewCell.h"
+
+static NSString * const ListCellKey = @"listCell";
+static NSString * const PersistentListKey = @"persistentList";
 // creates a private use of AIListDataSource and the delegate lets the Text Field Change itself
 @interface AIListDataSource () <UITextFieldDelegate>
 //defines variables
@@ -15,9 +18,6 @@
 @property (nonatomic, strong) NSArray *ideas;
 
 @end
-
-static NSString * const ListCellKey = @"listCell";
-static NSString * const PersistentListKey = @"persistentList";
 
 @implementation AIListDataSource
 //?WIT I understand "match a user’s preferences" but how do we use it in our app?
@@ -50,9 +50,8 @@ static NSString * const PersistentListKey = @"persistentList";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSString *identifier = [NSString stringWithFormat:@"Cell %d", indexPath.row];
-    AITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
+    AITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ListCellKey];
     cell.titleField.tag = indexPath.row;
     cell.titleField.delegate = self;
     [cell updateWithIdea:self.ideas[indexPath.row]];
@@ -63,13 +62,27 @@ static NSString * const PersistentListKey = @"persistentList";
 // creates cell for editing
 -(void) newIdea {
     NSLog(@"Data Source: you want to add an idea");
-    
+        // In order to save the cell if still editing we need to resign the responder and have the delegate methods called. So we reload the tableview before adding another idea
     [self.tableView reloadData];
     
     NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@""];
     [mutableIdeas addObjectsFromArray:self.ideas];
     self.ideas = [NSMutableArray arrayWithArray:mutableIdeas];
     //? Wouldn't we need to reload the view?
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    NSInteger index = textField.tag;
+    
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithArray:self.ideas];
+    [mutableIdeas replaceObjectAtIndex:index withObject:textField.text];
+    self.ideas = [NSArray arrayWithArray:mutableIdeas];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

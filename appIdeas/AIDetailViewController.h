@@ -1,5 +1,5 @@
 //
-//  AIAppDelegate.h
+//  AIDetailViewController.h
 //  appIdeas
 //
 //  Created by John D. Storey on 5/28/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface AIDetailViewController : UIViewController
 
 @end

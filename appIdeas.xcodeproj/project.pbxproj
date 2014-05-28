@@ -22,6 +22,7 @@
 		F52913C91936783B00DD7167 /* AIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913C81936783B00DD7167 /* AIRootViewController.m */; };
 		F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CB19367FDC00DD7167 /* AIListDataSource.m */; };
 		F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CE1936834400DD7167 /* AITableViewCell.m */; };
+		F52913D21936991B00DD7167 /* AIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913D11936991B00DD7167 /* AIDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		F52913CB19367FDC00DD7167 /* AIListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListDataSource.m; sourceTree = "<group>"; };
 		F52913CD1936834400DD7167 /* AITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewCell.h; sourceTree = "<group>"; };
 		F52913CE1936834400DD7167 /* AITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewCell.m; sourceTree = "<group>"; };
+		F52913D01936991B00DD7167 /* AIDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailViewController.h; sourceTree = "<group>"; };
+		F52913D11936991B00DD7167 /* AIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				F52913C81936783B00DD7167 /* AIRootViewController.m */,
 				F52913CD1936834400DD7167 /* AITableViewCell.h */,
 				F52913CE1936834400DD7167 /* AITableViewCell.m */,
+				F52913D01936991B00DD7167 /* AIDetailViewController.h */,
+				F52913D11936991B00DD7167 /* AIDetailViewController.m */,
 				F52913AA193677CC00DD7167 /* Images.xcassets */,
 				F529139F193677CC00DD7167 /* Supporting Files */,
 			);
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52913A9193677CC00DD7167 /* AIAppDelegate.m in Sources */,
+				F52913D21936991B00DD7167 /* AIDetailViewController.m in Sources */,
 				F52913A5193677CC00DD7167 /* main.m in Sources */,
 				F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */,
 				F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */,
