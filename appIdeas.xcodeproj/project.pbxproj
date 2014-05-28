@@ -20,6 +20,8 @@
 		F52913BC193677CC00DD7167 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F52913BA193677CC00DD7167 /* InfoPlist.strings */; };
 		F52913BE193677CC00DD7167 /* appIdeasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913BD193677CC00DD7167 /* appIdeasTests.m */; };
 		F52913C91936783B00DD7167 /* AIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913C81936783B00DD7167 /* AIRootViewController.m */; };
+		F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CB19367FDC00DD7167 /* AIListDataSource.m */; };
+		F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CE1936834400DD7167 /* AITableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		F52913BD193677CC00DD7167 /* appIdeasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appIdeasTests.m; sourceTree = "<group>"; };
 		F52913C71936783B00DD7167 /* AIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRootViewController.h; sourceTree = "<group>"; };
 		F52913C81936783B00DD7167 /* AIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRootViewController.m; sourceTree = "<group>"; };
+		F52913CA19367FDC00DD7167 /* AIListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIListDataSource.h; sourceTree = "<group>"; };
+		F52913CB19367FDC00DD7167 /* AIListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListDataSource.m; sourceTree = "<group>"; };
+		F52913CD1936834400DD7167 /* AITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewCell.h; sourceTree = "<group>"; };
+		F52913CE1936834400DD7167 /* AITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +116,14 @@
 		F529139E193677CC00DD7167 /* appIdeas */ = {
 			isa = PBXGroup;
 			children = (
-				F52913C71936783B00DD7167 /* AIRootViewController.h */,
-				F52913C81936783B00DD7167 /* AIRootViewController.m */,
 				F52913A7193677CC00DD7167 /* AIAppDelegate.h */,
 				F52913A8193677CC00DD7167 /* AIAppDelegate.m */,
+				F52913CA19367FDC00DD7167 /* AIListDataSource.h */,
+				F52913CB19367FDC00DD7167 /* AIListDataSource.m */,
+				F52913C71936783B00DD7167 /* AIRootViewController.h */,
+				F52913C81936783B00DD7167 /* AIRootViewController.m */,
+				F52913CD1936834400DD7167 /* AITableViewCell.h */,
+				F52913CE1936834400DD7167 /* AITableViewCell.m */,
 				F52913AA193677CC00DD7167 /* Images.xcassets */,
 				F529139F193677CC00DD7167 /* Supporting Files */,
 			);
@@ -247,6 +257,8 @@
 			files = (
 				F52913A9193677CC00DD7167 /* AIAppDelegate.m in Sources */,
 				F52913A5193677CC00DD7167 /* main.m in Sources */,
+				F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */,
+				F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */,
 				F52913C91936783B00DD7167 /* AIRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

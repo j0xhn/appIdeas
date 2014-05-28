@@ -19,7 +19,6 @@
     [self.window makeKeyAndVisible];
     
     AIRootViewController *rootViewController = [AIRootViewController new];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
     self.window.rootViewController = navigationController;
