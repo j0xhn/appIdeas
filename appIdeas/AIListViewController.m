@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 d. All rights reserved.
 //
 
-#import "AIRootViewController.h"
+#import "AIListViewController.h"
 #import "AIListDataSource.h"
 
 #import "AIDetailViewController.h"
 
-@interface AIRootViewController () <UITableViewDelegate>
+@interface AIListViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) AIListDataSource *dataSource;
 
 @end
 
-@implementation AIRootViewController
+@implementation AIListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -69,7 +69,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
     AIDetailViewController *detailController = [AIDetailViewController new];
+    //Can we go over the structure of [self.dataSource ideas][indexPath.row] != self.dataSource.ideas[indexPath.row]?
+    [detailController updateWithIdea:[self.dataSource ideas][indexPath.row]];
     [self.navigationController pushViewController:detailController animated:YES];
     
 }

@@ -19,10 +19,12 @@
 		F52913B4193677CC00DD7167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F529139C193677CC00DD7167 /* UIKit.framework */; };
 		F52913BC193677CC00DD7167 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F52913BA193677CC00DD7167 /* InfoPlist.strings */; };
 		F52913BE193677CC00DD7167 /* appIdeasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913BD193677CC00DD7167 /* appIdeasTests.m */; };
-		F52913C91936783B00DD7167 /* AIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913C81936783B00DD7167 /* AIRootViewController.m */; };
+		F52913C91936783B00DD7167 /* AIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913C81936783B00DD7167 /* AIListViewController.m */; };
 		F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CB19367FDC00DD7167 /* AIListDataSource.m */; };
 		F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913CE1936834400DD7167 /* AITableViewCell.m */; };
 		F52913D21936991B00DD7167 /* AIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913D11936991B00DD7167 /* AIDetailViewController.m */; };
+		F52913D51936BDB400DD7167 /* AIDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F52913D41936BDB400DD7167 /* AIDetailDataSource.m */; };
+		F5D87CCC1937C72100BA2B3C /* AIDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D87CCB1937C72100BA2B3C /* AIDetailTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +54,18 @@
 		F52913B9193677CC00DD7167 /* appIdeasTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "appIdeasTests-Info.plist"; sourceTree = "<group>"; };
 		F52913BB193677CC00DD7167 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F52913BD193677CC00DD7167 /* appIdeasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appIdeasTests.m; sourceTree = "<group>"; };
-		F52913C71936783B00DD7167 /* AIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRootViewController.h; sourceTree = "<group>"; };
-		F52913C81936783B00DD7167 /* AIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRootViewController.m; sourceTree = "<group>"; };
+		F52913C71936783B00DD7167 /* AIListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIListViewController.h; sourceTree = "<group>"; };
+		F52913C81936783B00DD7167 /* AIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListViewController.m; sourceTree = "<group>"; };
 		F52913CA19367FDC00DD7167 /* AIListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIListDataSource.h; sourceTree = "<group>"; };
 		F52913CB19367FDC00DD7167 /* AIListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIListDataSource.m; sourceTree = "<group>"; };
 		F52913CD1936834400DD7167 /* AITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewCell.h; sourceTree = "<group>"; };
 		F52913CE1936834400DD7167 /* AITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewCell.m; sourceTree = "<group>"; };
 		F52913D01936991B00DD7167 /* AIDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailViewController.h; sourceTree = "<group>"; };
 		F52913D11936991B00DD7167 /* AIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDetailViewController.m; sourceTree = "<group>"; };
+		F52913D31936BDB400DD7167 /* AIDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailDataSource.h; sourceTree = "<group>"; };
+		F52913D41936BDB400DD7167 /* AIDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDetailDataSource.m; sourceTree = "<group>"; };
+		F5D87CCA1937C72100BA2B3C /* AIDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailTableViewCell.h; sourceTree = "<group>"; };
+		F5D87CCB1937C72100BA2B3C /* AIDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDetailTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +127,8 @@
 			children = (
 				F52913A7193677CC00DD7167 /* AIAppDelegate.h */,
 				F52913A8193677CC00DD7167 /* AIAppDelegate.m */,
-				F52913CA19367FDC00DD7167 /* AIListDataSource.h */,
-				F52913CB19367FDC00DD7167 /* AIListDataSource.m */,
-				F52913C71936783B00DD7167 /* AIRootViewController.h */,
-				F52913C81936783B00DD7167 /* AIRootViewController.m */,
-				F52913CD1936834400DD7167 /* AITableViewCell.h */,
-				F52913CE1936834400DD7167 /* AITableViewCell.m */,
-				F52913D01936991B00DD7167 /* AIDetailViewController.h */,
-				F52913D11936991B00DD7167 /* AIDetailViewController.m */,
+				F5D87CCE1937C77200BA2B3C /* Main Table */,
+				F5D87CCD1937C75B00BA2B3C /* Detail */,
 				F52913AA193677CC00DD7167 /* Images.xcassets */,
 				F529139F193677CC00DD7167 /* Supporting Files */,
 			);
@@ -162,6 +162,32 @@
 				F52913BA193677CC00DD7167 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5D87CCD1937C75B00BA2B3C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F52913D31936BDB400DD7167 /* AIDetailDataSource.h */,
+				F52913D41936BDB400DD7167 /* AIDetailDataSource.m */,
+				F52913D01936991B00DD7167 /* AIDetailViewController.h */,
+				F52913D11936991B00DD7167 /* AIDetailViewController.m */,
+				F5D87CCA1937C72100BA2B3C /* AIDetailTableViewCell.h */,
+				F5D87CCB1937C72100BA2B3C /* AIDetailTableViewCell.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		F5D87CCE1937C77200BA2B3C /* Main Table */ = {
+			isa = PBXGroup;
+			children = (
+				F52913CA19367FDC00DD7167 /* AIListDataSource.h */,
+				F52913CB19367FDC00DD7167 /* AIListDataSource.m */,
+				F52913C71936783B00DD7167 /* AIListViewController.h */,
+				F52913C81936783B00DD7167 /* AIListViewController.m */,
+				F52913CD1936834400DD7167 /* AITableViewCell.h */,
+				F52913CE1936834400DD7167 /* AITableViewCell.m */,
+			);
+			name = "Main Table";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +288,12 @@
 			files = (
 				F52913A9193677CC00DD7167 /* AIAppDelegate.m in Sources */,
 				F52913D21936991B00DD7167 /* AIDetailViewController.m in Sources */,
+				F5D87CCC1937C72100BA2B3C /* AIDetailTableViewCell.m in Sources */,
 				F52913A5193677CC00DD7167 /* main.m in Sources */,
 				F52913CC19367FDC00DD7167 /* AIListDataSource.m in Sources */,
 				F52913CF1936834400DD7167 /* AITableViewCell.m in Sources */,
-				F52913C91936783B00DD7167 /* AIRootViewController.m in Sources */,
+				F52913C91936783B00DD7167 /* AIListViewController.m in Sources */,
+				F52913D51936BDB400DD7167 /* AIDetailDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +490,7 @@
 				F52913C3193677CC00DD7167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F52913C4193677CC00DD7167 /* Build configuration list for PBXNativeTarget "appIdeasTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +499,7 @@
 				F52913C6193677CC00DD7167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

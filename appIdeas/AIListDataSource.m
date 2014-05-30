@@ -11,27 +11,34 @@
 
 static NSString * const ListCellKey = @"listCell";
 static NSString * const PersistentListKey = @"persistentList";
+static NSString * const titleKey = @"title";
+
 // creates a private use of AIListDataSource and the delegate lets the Text Field Change itself
 @interface AIListDataSource () <UITextFieldDelegate>
 //defines variables
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, strong) NSArray *ideas;
+@property (nonatomic, strong) NSMutableDictionary *idea;
 
 @end
 
 @implementation AIListDataSource
-//?WIT I understand "match a user’s preferences" but how do we use it in our app?
+//?WIT I understand "match a user’s preferences and allows for data to be stored to a type of database" but how do we use it in our app?
 - (id)init {
     
     self = [super init];
     if (self) {
         
-        NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:PersistentListKey];
-        self.ideas = list;
+        self.ideas = [[NSUserDefaults standardUserDefaults] objectForKey:PersistentListKey];
         
     }
     return self;
 }
+// returns text inside of ideas array
+//+ (NSString *)ideaAtIndex:(NSInteger)index{
+//    
+//    return [self list][index];
+//}
 // ?WIT Wher is this first occurence spoken of in "Returns the object associated with the first occurrence of the specified default."
 - (void)setIdeas:(NSArray *)ideas {
     _ideas = ideas;
@@ -65,7 +72,7 @@ static NSString * const PersistentListKey = @"persistentList";
         // In order to save the cell if still editing we need to resign the responder and have the delegate methods called. So we reload the tableview before adding another idea
     [self.tableView reloadData];
     
-    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@""];
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@{titleKey: @""}];
     [mutableIdeas addObjectsFromArray:self.ideas];
     self.ideas = [NSMutableArray arrayWithArray:mutableIdeas];
     //? Wouldn't we need to reload the view?
@@ -74,13 +81,16 @@ static NSString * const PersistentListKey = @"persistentList";
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     NSInteger index = textField.tag;
+    NSMutableDictionary *idea = [[NSMutableDictionary alloc] initWithDictionary:self.ideas[index]];
+    [idea setObject:textField.text forKey:titleKey];
     
     NSMutableArray *mutableIdeas = [NSMutableArray arrayWithArray:self.ideas];
-    [mutableIdeas replaceObjectAtIndex:index withObject:textField.text];
+    [mutableIdeas replaceObjectAtIndex:index withObject:idea];
     self.ideas = [NSArray arrayWithArray:mutableIdeas];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"you clicked return");
     [textField resignFirstResponder];
     return YES;
 }

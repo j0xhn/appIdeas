@@ -7,7 +7,7 @@
 //
 
 #import "AIAppDelegate.h"
-#import "AIRootViewController.h"
+#import "AIListViewController.h"
 
 @implementation AIAppDelegate
 
@@ -17,7 +17,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    AIRootViewController *rootViewController = [AIRootViewController new];
+    AIListViewController *rootViewController = [AIListViewController new];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
     [self.window makeKeyAndVisible];

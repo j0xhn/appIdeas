@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIRootViewController : UIViewController
+@interface AIListViewController : UIViewController
+
+@property (nonatomic, assign) NSInteger appIdeaIndex;
 
 @end

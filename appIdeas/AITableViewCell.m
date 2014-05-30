@@ -7,8 +7,9 @@
 //
 
 #import "AITableViewCell.h"
-
-static CGFloat margin = 45;
+#import "AIListDataSource.h"
+static NSString * const titleKey = @"title";
+static CGFloat margin = 15;
 
 @interface AITableViewCell ()
 
@@ -32,8 +33,8 @@ static CGFloat margin = 45;
     return self;
 }
 
-- (void) updateWithIdea:(NSString *)idea{
-    self.titleField.text = idea;
+- (void) updateWithIdea:(NSDictionary *)idea{
+    self.titleField.text = idea[titleKey];
 }
 
 @end

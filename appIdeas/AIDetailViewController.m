@@ -7,8 +7,14 @@
 //
 
 #import "AIDetailViewController.h"
+#import "AIDetailDataSource.h"
+
+static NSString * const titleKey = @"title";
 
 @interface AIDetailViewController ()
+@property (nonatomic,strong) NSDictionary *idea;
+@property (nonatomic, strong) AIDetailDataSource *dataSource;
+@property (nonatomic,strong) UITableView *tableView;
 
 @end
 
@@ -18,7 +24,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // I wanted to just assign, but I need to CREATE one
+        self.dataSource = [AIDetailDataSource new];
     }
     return self;
 }
@@ -26,25 +33,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-        self.view.backgroundColor = [UIColor whiteColor];
+    // Set Title with text in indexPath of the ideasArray
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self.dataSource;
+    tableView.rowHeight = 150;
+    self.tableView = tableView;
+    [self.view addSubview:tableView];
+    
+    [self.dataSource registerTableView:tableView];
+    
+    UIBarButtonItem *plusButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newVoice)];
+    self.navigationItem.rightBarButtonItem = plusButton;
+    
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) newVoice{
+    [self.dataSource newVoice];
+    [self.tableView reloadData];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// executed when row is selected on previous view
+- (void) updateWithIdea:(NSDictionary *)idea{
+    self.idea = idea;
+    // What does this do exactly?
+    self.dataSource.idea = idea;
+    self.title = [idea objectForKey:titleKey];
 }
-*/
-
 @end
