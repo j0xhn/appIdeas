@@ -20,14 +20,13 @@ static NSString * const scoreKey = @"score";
 @end
 @implementation AIDetailDataSource
 
-// Can we go over this again?  I'm not comfortable with why we need to do this?
 - (void)setIdea:(NSDictionary *)idea {
     _idea = idea;
     
     NSArray *voices = [[NSUserDefaults standardUserDefaults] objectForKey:idea[titleKey]];
     self.userVoices = voices;
 }
-// This one might be a little easier to understand, it's setting the object with the string from what it gets in "forKey"
+
 - (void)setUserVoices:(NSArray *)userVoices {
     _userVoices = userVoices;
     
@@ -35,7 +34,7 @@ static NSString * const scoreKey = @"score";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-// This is neccessary whenever you have a custom TableViewCell that you are going to be creating right? Am I understanding correctly?
+// This is neccessary anytime you have a deque with a reuseable identifier
 - (void) registerTableView:(UITableView *)tableView{
     self.tableView = tableView;
     [tableView registerClass:[AIDetailTableViewCell class] forCellReuseIdentifier:VoiceCellKey];
@@ -46,7 +45,7 @@ static NSString * const scoreKey = @"score";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // why can't I use a normal UITableView class here?  Why do I need to create a new one and register it?
+
     AIDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:VoiceCellKey];
     [cell updateWithVoice:self.userVoices[indexPath.row] idea:self.idea];
     cell.userNameField.delegate = self;
@@ -60,7 +59,7 @@ static NSString * const scoreKey = @"score";
     NSMutableArray *mutableVoices = [NSMutableArray arrayWithObject:@{userNameKey:@"", scoreKey:@(0)}];
     //adds objects from userVoices into our mutable array
     [mutableVoices addObjectsFromArray:self.userVoices];
-    //sets our normal array to equal our mutabal array, HOW DOES THIS ADD AN EMPTY FIELD THOUGH?
+    // ? Sets our normal array to equal our mutabal array, HOW DOES THIS ADD AN EMPTY FIELD THOUGH?
     self.userVoices = [NSArray arrayWithArray:mutableVoices];
 }
 
@@ -80,7 +79,6 @@ static NSString * const scoreKey = @"score";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"You Clicked Done");
     [textField resignFirstResponder];
     return YES;
 }

@@ -23,7 +23,7 @@ static NSString * const titleKey = @"title";
 @end
 
 @implementation AIListDataSource
-//?WIT I understand "match a user’s preferences and allows for data to be stored to a type of database" but how do we use it in our app?
+
 - (id)init {
     
     self = [super init];
@@ -34,12 +34,7 @@ static NSString * const titleKey = @"title";
     }
     return self;
 }
-// returns text inside of ideas array
-//+ (NSString *)ideaAtIndex:(NSInteger)index{
-//    
-//    return [self list][index];
-//}
-// ?WIT Wher is this first occurence spoken of in "Returns the object associated with the first occurrence of the specified default."
+
 - (void)setIdeas:(NSArray *)ideas {
     _ideas = ideas;
     

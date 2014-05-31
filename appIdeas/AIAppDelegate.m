@@ -9,6 +9,15 @@
 #import "AIAppDelegate.h"
 #import "AIListViewController.h"
 
+static NSString * const launchCountKey = @"launchCount";
+
+@interface AIAppDelegate ()
+
+@property NSInteger launchNumber;
+
+- (void) updateLaunchCount;
+
+@end
 @implementation AIAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,8 +29,23 @@
     AIListViewController *rootViewController = [AIListViewController new];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
+    [self updateLaunchCount];
+    
     [self.window makeKeyAndVisible];
     return YES;
+    
+    
+}
+
+- (void) updateLaunchCount{
+    
+    self.launchNumber = [[NSUserDefaults standardUserDefaults] integerForKey:launchCountKey];
+    NSLog(@"The old launch number is %d", self.launchNumber);
+    self.launchNumber ++;
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:self.launchNumber forKey:launchCountKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"The new launch number is %d", self.launchNumber);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

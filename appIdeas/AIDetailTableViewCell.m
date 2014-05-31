@@ -8,6 +8,12 @@
 
 #import "AIDetailTableViewCell.h"
 
+@interface AIDetailTableViewCell ()
+
+@property (nonatomic, strong) NSDictionary *voiceDetail;
+
+@end
+
 @implementation AIDetailTableViewCell
 
 -(void) updateWithVoice:(NSDictionary *)voice idea:(NSDictionary *)idea{
@@ -18,10 +24,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Why not just label this text field as *userNameField rather than assigning it later on?
+
         UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(10, 10, 150, 30)];
         self.userNameField = textField;
-        textField.backgroundColor = [UIColor lightGrayColor];
         textField.placeholder = @"Name";
         [self.contentView addSubview:textField];
         
@@ -54,8 +59,10 @@
 }
 
 -(void) scoreButtonSelected:(id)sender{
-    NSLog(@"sender: %@", sender);
-    [self updateScore:[sender tag]];
+//    NSLog(@"sender: %@", sender);
+//    [self updateScore:[sender tag]];
+//    
+//    NSMutableDictionary *voiceDetail = [[NSMutableDictionary alloc] initWithDictionary:self.voiceDetailKey];
 }
 
 - (void) updateScore:(NSInteger *)score{
